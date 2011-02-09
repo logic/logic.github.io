@@ -8,8 +8,8 @@ layout: nil
     <link>http://github.logic.net/</link>
     <description>Beware of programmers who carry screwdrivers</description>
     <lastBuildDate>{{ site.time }}</lastBuildDate>
-    {% for c in site.categories %}
-    <category>{{ c }}</category>
+    {% for c in site.iterable.categories %}
+    <category>{{ c.name }}</category>
     {% endfor %}
     {% for post in site.posts %}
     <item>
