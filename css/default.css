@@ -1,0 +1,21 @@
+@import url("syntax.css");
+.highlighttable .linenos .linenodiv {
+  border-right: 1px #CCC solid;
+  padding-right: 10px;
+  margin-right: 10px;
+}
+
+.header { border-bottom: 1px dashed; }
+
+.content { width: 80%; margin: 0 auto; }
+
+.content :first-child { margin-top: 0; }
+
+.meta { margin: 0; padding: 0; text-align: right; }
+
+.footer { border-top: 1px dashed; }
+
+.postTitle { margin-bottom: 0; }
+.post { margin: 10px; padding: 10px; border: 10px solid #CCC; }
+
+.links li { list-style: none; float: left; padding: 3px 5px; }

@@ -1,0 +1,55 @@
+---
+layout: post
+title: "Kerberos and ksu"
+categories:
+  - linux
+  - sysadmin
+  - bash
+  - shell
+  - kerberos
+  - xwindows
+  - security
+---
+<p>Kerberos as a site-wide authentication mechanism has it's benefits, but the software that's typically used to drive it is getting a little long in the tooth. ksu, the kerberized equivalent to su, is only a partial implementation of what su does; there's no argument to ksu that says "this is a login shell, please set up the necessary environment". Even su has a couple of failings; in particular, if you're an X user, you're probably familiar with how su - doesn't bring your X authentication data along for the ride.</p>
+
+<p>So, I fixed both of those a while back, with a really ugly shell script. Just in case anyone else might find it handy, here it is:</p>
+
+{% highlight bash linenos=table anchorlinenos=True lineanchors=ksu %}
+#!/bin/sh
+
+# Replacement for raw "ksu" in kerberized environments;
+# behaves more like "su -", and retains xauth data.
+
+if [ $# -lt 1 ]
+then
+    echo "Usage: `basename $0` <target user> [ <command> [ <arg> ] ... ]"
+    exit 2
+fi
+
+TARGET_USER="$1"
+shift
+
+# be a basic login shell if no command is specified.
+if [ -z "$*" ]
+then
+    TARGET_CMD='-l'
+else
+    TARGET_CMD="-c '$*'"
+fi
+
+# FD 4 becomes stdin
+exec 4>&0
+
+xauth list | sed -e 's/^/add /' | {
+    # FD 3 becomes xauth output
+    # FD 0 becomes stdin again
+    # FD 4 is closed
+    exec 3>&0 0>&4 4>&-
+
+    exec /usr/bin/env -u PATH -u LD_LIBRARY_PATH \
+      /usr/krb5/bin/ksu "${TARGET_USER}" -e /bin/bash -l -c "
+        xauth -q <&3
+        cd
+        exec /usr/bin/env DISPLAY='${DISPLAY}' "'"$SHELL"'" ${TARGET_CMD} 3>&-"
+}
+{% endhighlight %}

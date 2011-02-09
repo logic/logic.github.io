@@ -1,0 +1,41 @@
+---
+layout: default
+title: "Beware of programmers carrying screwdrivers"
+---
+{% for post in paginator.posts %}
+<h1 class="postTitle"><a href="{{ post.url }}">{{ post.title }}</a></h1>
+<div class="post">
+  {{ post.content }}
+  <p class="meta">
+    {{ post.date | date: "%b %d, %Y" }}
+    <br />
+    {% for c in post.categories %}
+    <span class="postCategory">{{ c }}</span>{% if forloop.last != true %},{% endif %}
+    {% endfor %}
+  </p>
+</div>
+{% endfor %}
+
+<div class="paginator">
+  <div style="float: left">
+    {% if paginator.next_page %}
+      <a href="/page{{ paginator.next_page }}/">&larr; Older</a>
+    {% endif %}
+  </div>
+  
+  <div style="float: right">
+    {% if paginator.previous_page %}
+      <a href="
+        {% if paginator.previous_page == 1 %}
+          /
+        {% else %}
+          /page{{ paginator.previous_page }}
+        {% endif %}">Newer &rarr;</a>
+    {% endif %}
+  </div>
+
+  <div style="clear: both">
+  </div>
+</div>
+
+<br />

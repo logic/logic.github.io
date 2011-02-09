@@ -1,0 +1,28 @@
+---
+layout: post
+title: "Bash history retention for root"
+categories:
+  - linux
+  - sysadmin
+  - bash
+  - shell
+---
+<p>A quick random Linux administration tip: add the following three lines to <kbd>root</kbd>'s <kbd>.bashrc</kbd>:</p>
+
+{% highlight bash linenos=table anchorlinenos=True lineanchors=bashhist %}
+[ ! -d $HOME/.history ] && mkdir $HOME/.history
+set -- `/usr/bin/who -m`
+HISTFILE="$HOME/.history/`/bin/date +%Y-%m-%d.%T`.`/bin/hostname -s`.$$.$1"
+{% endhighlight %}
+
+<p>Once you do, future login sessions as root will be saved in a directory named <kbd>.history</kbd> in <kbd>root</kbd>'s home directory, in the pattern:</p>
+
+{% highlight console %}
+2010-09-17.13:53:27.foohost.14379.foouser
+{% endhighlight %}
+
+<p>Why would you want to do something like this? First, each shell/session is stored to it's own file, rather than interleaving into a single file in whatever order you might have exited them. Second, it tells you both when you started the session (by the filename) and when you ended it (by the timestamp on the file). Third, for systems administered by multiple people, it tells you who was <kbd>su</kbd>'d to <kbd>root</kbd> when the session occurred (or just displays <kbd>root</kbd> for console logins), so you know which admin "owned" that session.</p>
+
+<p>The main downside here is that you lose the ability to see multiple sessions' worth of history in your history buffer, but for systems with multiple admins, I haven't missed it (as getting someone else's history when scrolling back has proven more annoying than helpful for me), but if you lean hard on your history, this might not be a net win for you.</p>
+
+<p>Also, I'd suggest resisting the urge to treat this as an "audit log" of any kind; it's trivially bypassed, meaning that this is for teams that trust each other. Use it instead as a way of recreating the how and why of a change after (occasionally <em>long</em> after) it was made.</p>

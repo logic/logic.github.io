@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<h1 class="postTitle"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+<div class="post">
+  {{ content }}
+  <p class="meta">
+    {{ page.date | date: "%b %d, %Y" }} |
+    <a href="{{ page.url }}">Permalink</a>
+    <br />
+    {% for c in page.categories %}
+    <span class="postCategory">{{ c }}</span>{% if forloop.last != true %},{% endif %}
+    {% endfor %}
+  </p>
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    {% for post in site.related_posts limit:3 %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
