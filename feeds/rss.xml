@@ -5,7 +5,7 @@ layout: nil
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>esm@github</title>
-    <link>http://github.logic.net/</link>
+    <link>http://code.logic.net/</link>
     <description>Beware of programmers who carry screwdrivers</description>
     <lastBuildDate>{{ site.time }}</lastBuildDate>
     {% for category in site.categories %}
@@ -14,8 +14,8 @@ layout: nil
     {% for post in site.posts %}
     <item>
       <title>{{ post.title }}</title>
-      <link>http://github.logic.net{{ post.url }}</link>
-      <guid>http://github.logic.net{{ post.url }}</guid>
+      <link>http://code.logic.net{{ post.url }}</link>
+      <guid>http://code.logic.net{{ post.url }}</guid>
       <pubDate>{{ post.date }}</pubDate>
       <description>{{ post.content | xml_escape }}</description>
       {% for category in post.categories %}

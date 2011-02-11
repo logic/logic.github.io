@@ -5,20 +5,20 @@ layout: nil
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>esm@github</title>
   <subtitle>Beware of programmers who carry screwdrivers</subtitle>
-  <link href="http://github.logic.net/atom.xml" rel="self"/>
-  <link href="http://github.logic.net/"/>
+  <link href="http://code.logic.net/atom.xml" rel="self"/>
+  <link href="http://code.logic.net/"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <id>http://github.logic.net/</id>
+  <id>http://code.logic.net/</id>
   <author>
     <name>Ed Marshall</name>
-    <email>esm+github@logic.net</email>
+    <email>esm+code.logic.net</email>
   </author>
   {% for post in site.posts %}
   <entry>
     <title>{{ post.title }}</title>
-    <link href="http://github.logic.net{{ post.url }}"/>
+    <link href="http://code.logic.net{{ post.url }}"/>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <id>http://github.logic.net{{ post.id }}</id>
+    <id>http://code.logic.net{{ post.id }}</id>
     <content type="html">{{ post.content | xml_escape }}</content>
   </entry>
   {% endfor %}
