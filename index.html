@@ -7,13 +7,12 @@ title: "Beware of programmers carrying screwdrivers"
 <div class="post">
   {{ post.content }}
   <p class="meta">
-    {{ post.date | date: "%b %d, %Y" }}
+    {{ post.date | date: "%b %d, %Y" }} -
+    <a id="more" href="{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.url }}">Comments</a>
     <br />
     {% for c in post.categories %}
     <span class="postCategory">{{ c }}</span>{% if forloop.last != true %},{% endif %}
     {% endfor %}
-    <br />
-    <a id="more" href="{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.url }}">Comments</a>
   </p>
 </div>
 {% endfor %}
