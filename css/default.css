@@ -1,21 +1,65 @@
-@import url("syntax.css");
+@import url(http://fonts.googleapis.com/css?family=Cabin|Droid+Serif);
+@import url('syntax.css');
 .highlighttable .linenos .linenodiv {
   border-right: 1px #CCC solid;
   padding-right: 10px;
   margin-right: 10px;
 }
 
-.header { border-bottom: 1px dashed; }
+BODY {
+  font: 15px/23px 'Droid Serif',serif;
+}
 
-.content { width: 80%; margin: 0 auto; }
+.header, BODY {
+  padding: 5px;
+  margin: 0px 0px 20px 0px;
+}
+
+.header {
+  border-bottom: 1px dashed;
+  font: 32px 'Cabin',sans-serif;
+}
+
+A, A:visited {
+  text-decoration: none;
+  color: #458B00;
+}
+
+A:hover {
+  color: white;
+  background-color: #006400;
+}
+
+.content {
+  width: 80%;
+  margin: 0 auto;
+}
 
 .content :first-child { margin-top: 0; }
 
-.meta { margin: 0; padding: 0; text-align: right; }
+.meta {
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  font-family: Helvetica Neue, Helvetica, serif;
+  font-size: 11px;
+ }
 
-.footer { border-top: 1px dashed; }
+.postTitle {
+  margin-bottom: 0;
+}
 
-.postTitle { margin-bottom: 0; }
-.post { margin: 10px; padding: 10px; border: 10px solid #CCC; }
+.post {
+  margin: 10px 0;
+  padding: 10px;
+  border-top: 10px solid #CCC;
+}
 
-.links li { list-style: none; float: left; padding: 3px 5px; }
+.footer {
+  border-top: 1px dashed;
+  padding: 5px;
+  margin: 20px 0px 0px 0px;
+}
+
+.links LI { list-style: none; float: left; padding: 0 5px; margin: 0; }
+UL { padding: 0; margin: 0; }
