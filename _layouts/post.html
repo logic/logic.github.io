@@ -3,15 +3,22 @@ layout: default
 ---
 <h1 class="postTitle"><a href="{{ page.url }}">{{ page.title }}</a></h1>
 <div class="post">
-  {{ content }}
-  <p class="meta">
-    {{ page.date | date: "%b %d, %Y" }} -
-    <a href="{{ page.url }}">Permalink</a>
+  <div class="date">
+    <span class="weekDay">{{ page.date | date: "%a" }}</span><br />
+    <span class="monthDay">{{ page.date | date: "%b %d" }}</span><br />
+    <span class="year">{{ page.date | date: "%Y" }}</span>
+  </div>
+  <div class="text">
+    {{ content }}
+  </div>
+  <div class="meta">
+    <a href="{{ page.url }}">Permalink</a> -
+    Posted at {{ page.date | date: "%I:%M %p" }}
     <br />
     {% for c in page.categories %}
     <span class="postCategory">{{ c }}</span>{% if forloop.last != true %},{% endif %}
     {% endfor %}
-  </p>
+  </div>
 </div>
 
 <div id="related">

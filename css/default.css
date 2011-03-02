@@ -1,16 +1,18 @@
 @import url(http://fonts.googleapis.com/css?family=Cabin|Droid+Serif);
 @import url('syntax.css');
 .highlighttable .linenos .linenodiv {
-  border-right: 1px #CCC solid;
+  border-right: 1px solid #CCC;
   padding-right: 10px;
   margin-right: 10px;
 }
 
 BODY {
   font: 15px/23px 'Droid Serif',serif;
+  margin: 0;
+  padding: 0;
 }
 
-.header, BODY {
+.header {
   padding: 5px;
   margin: 0px 0px 20px 0px;
 }
@@ -18,6 +20,7 @@ BODY {
 .header {
   border-bottom: 1px dashed;
   font: 32px 'Cabin',sans-serif;
+  margin-bottom: 1.5em;
 }
 
 A, A:visited {
@@ -37,7 +40,24 @@ A:hover {
 
 .content :first-child { margin-top: 0; }
 
+.content .date {
+  border-bottom: 1px solid #CCC;
+  text-align: center;
+  /*width: 5em;*/
+  float: left;
+  color: #787;
+}
+
+.content .date .weekDay { font-size: 1.9em; }
+.content .date .monthDay { font-size: 1em; }
+.content .date .year { font-size: 1.4em; }
+
+.content .text {
+  margin-left: 5em;
+}
+
 .meta {
+  clear: both;
   margin: 0;
   padding: 0;
   text-align: right;
