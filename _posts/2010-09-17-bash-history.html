@@ -10,11 +10,7 @@ categories:
 ---
 <p>A quick random Linux administration tip: add the following three lines to <kbd>root</kbd>'s <kbd>.bashrc</kbd>:</p>
 
-{% highlight bash linenos=table anchorlinenos=True lineanchors=bashhist %}
-[ ! -d $HOME/.history ] && mkdir $HOME/.history
-set -- `/usr/bin/who -m`
-HISTFILE="$HOME/.history/`/bin/date +%Y-%m-%d.%T`.`/bin/hostname -s`.$$.$1"
-{% endhighlight %}
+<script src="https://gist.github.com/906847.js"> </script>
 
 <p>Once you do, future login sessions as root will be saved in a directory named <kbd>.history</kbd> in <kbd>root</kbd>'s home directory, in the pattern:</p>
 

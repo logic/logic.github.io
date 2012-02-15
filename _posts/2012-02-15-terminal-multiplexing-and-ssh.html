@@ -1,0 +1,19 @@
+---
+layout: post
+title: "Terminal multiplexing and SSH"
+date: 2012-02-15 10:30:00
+categories:
+  - linux
+  - bash
+  - shell
+  - screen
+  - tmux
+  - ssh
+---
+<p>Tools like <a href="http://tmux.sourceforge.net/">tmux</a> and <a href="http://www.gnu.org/software/screen/">screen</a> are fantastic for doing work on remote systems: you can open up multiple sessions, fire off jobs, disconnect, and come back later, and things are still as you left them. However, if you use <a href="https://en.wikipedia.org/wiki/Ssh-agent">ssh-agent</a> for credential forwarding, you've probably noticed a downside: after disconnecting and reconnecting, the environment variables that ssh and friends use to figure out how to talk to ssh-agent are now wrong</p>
+
+<p>There's a million different ways to solve this; here's my take on it:</p>
+
+<script src="https://gist.github.com/1837945.js"></script>
+
+<p>Adding this to your <kbd>.bash_profile</kbd> (or <kbd>.bashrc</kbd>, depending on your local setup) will add aliases for both <kbd>tmux</kbd> and <kbd>screen</kbd>, which will save the four SSH-related environment variables you'll want to override inside of your terminal multiplexor to a file in your home directory. It also adds aliases for <kbd>ssh</kbd>, <kbd>scp</kbd>, and <kbd>sftp</kbd>, which forces the saved variables to be loaded prior to execution.</p>
