@@ -10,7 +10,7 @@ categories:
   - tmux
   - ssh
 ---
-<p>Tools like <a href="http://tmux.sourceforge.net/">tmux</a> and <a href="http://www.gnu.org/software/screen/">screen</a> are fantastic for doing work on remote systems: you can open up multiple sessions, fire off jobs, disconnect, and come back later, and things are still as you left them. However, if you use <a href="https://en.wikipedia.org/wiki/Ssh-agent">ssh-agent</a> for credential forwarding, you've probably noticed a downside: after disconnecting and reconnecting, the environment variables that ssh and friends use to figure out how to talk to ssh-agent are now wrong</p>
+<p>Tools like <a href="http://tmux.sourceforge.net/">tmux</a> and <a href="http://www.gnu.org/software/screen/">screen</a> are fantastic for doing work on remote systems: you can open up multiple sessions, fire off jobs, disconnect, and come back later, and things are still as you left them. However, if you use <a href="https://en.wikipedia.org/wiki/Ssh-agent">ssh-agent</a> for credential forwarding, you've probably noticed a downside: after disconnecting and reconnecting, the environment variables that ssh and friends use to figure out how to talk to ssh-agent are now wrong.</p>
 
 <p>There's a million different ways to solve this; here's my take on it:</p>
 
