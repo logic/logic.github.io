@@ -1,4 +1,3 @@
-auto: true
-pygments: true
+highlighter: pygments
 paginate: 10
 permalink: /:year/:month/:title/
