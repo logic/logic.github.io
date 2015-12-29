@@ -1,38 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" type="text/css" href="/css/default.css" media="screen" />
-    <link rel="alternate" type="application/atom+xml" title="Atom" href="/feeds/atom.xml" />
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feeds/rss.xml" />
-    <script type="text/javascript">
 
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-818298-7']);
-      _gaq.push(['_trackPageview']);
+    {% include head.html %}
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+    <body>
 
-    </script>
-  </head>
-  <body>
-    <h1 class="header">
-      <a href="/">#</a>
-      Beware of programmers carrying screwdrivers
-    </h1>
-    <div class="content">{{ content }}</div>
-    <div class="footer">
-      <ul class="links">
-        <li><a href="/about.html">About me</a></li>
-        <li><a href="http://esm.logic.net/">My real blog</a></li>
-        <li><a href="http://www.flickr.com/photos/edward_marshall">Flickr</a></li>
-        <li><a href="http://github.com/logic">Github</a></li>
-        <li><a href="/feeds/atom.xml" rel="alternate" type="application/atom+xml">Atom</a>/<a href="/feeds/rss.xml" rel="alternate" type="application/rss+xml">RSS</a></li>
-      </ul>
-    </div>
+        {% include header.html %}
+
+        <div class="page-content">
+            {{ content }}
+        </div>
+
+        {% include footer.html %}
+
   </body>
+
 </html>

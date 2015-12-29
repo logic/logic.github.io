@@ -12,12 +12,12 @@ BODY {
   padding: 0;
 }
 
-.header {
+.site-header {
   padding: 5px;
   margin: 0px 0px 20px 0px;
 }
 
-.header {
+.site-header {
   border-bottom: 1px dashed;
   font: 32px 'Cabin',sans-serif;
   margin-bottom: 1.5em;
@@ -33,14 +33,14 @@ A:hover {
   background-color: #006400;
 }
 
-.content {
+.page-content {
   width: 80%;
   margin: 0 auto;
 }
 
-.content :first-child { margin-top: 0; }
+.page-content :first-child { margin-top: 0; }
 
-.content .date {
+.page-content .date {
   border-bottom: 1px solid #CCC;
   text-align: center;
   /*width: 5em;*/
@@ -48,11 +48,11 @@ A:hover {
   color: #787;
 }
 
-.content .date .weekDay { font-size: 1.9em; }
-.content .date .monthDay { font-size: 1em; }
-.content .date .year { font-size: 1.4em; }
+.page-content .date .weekDay { font-size: 1.9em; }
+.page-content .date .monthDay { font-size: 1em; }
+.page-content .date .year { font-size: 1.4em; }
 
-.content .text {
+.page-content .text {
   margin-left: 5em;
 }
 
@@ -76,7 +76,7 @@ A:hover {
   border-top: 10px solid #CCC;
 }
 
-.footer {
+.site-footer {
   border-top: 1px dashed;
   padding: 5px;
   margin: 20px 0px 0px 0px;

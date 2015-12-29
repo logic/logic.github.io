@@ -1,13 +1,20 @@
-title: Beware of programmers carrying screwdrivers
-email: esm@logic.net
-description: >
-  Words about devops and engineering that occasionally form coherent thoughts.
+title: "Beware of programmers carrying screwdrivers"
+email: "esm@logic.net"
+description: "Words about devops and engineering. Occasionally coherent."
 baseurl: ""
 url: "http://code.logic.net"
-twitter_username: esm
-github_username:  logic
+author:
+  name: Ed Marshall
+  email: esm@logic.net
+  uri: "http://esm.logic.net/"
+  twitter: "esm"
+  github: "logic"
 
 markdown: kramdown
 highlighter: pygments
 paginate: 10
 permalink: /:year/:month/:title/
+
+gems:
+  - jekyll-feed
+  - jekyll-sitemap
