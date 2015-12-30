@@ -1,25 +1,10 @@
 ---
+layout: default
+date: 2009-12-13 12:53:38
 title: "Four Oh Four"
 permalink: /404.html
 ---
-<!DOCTYPE html>
-<html>
-
-    {% include head.html %}
-
-    <body>
-
-        {% include header.html %}
-
-        <div class="page-content">
-            <h1 class="postTitle"><a href="/">Four Oh Four</a></h1>
-            <div class="post">
-                <p>Sorry, nothing here by that name.</p>
-            </div>
-        </div>
-
-        {% include footer.html %}
-
-  </body>
-
-</html>
+<h1 class="postTitle"><a href="/">{{ page.title }}</a></h1>
+<div class="post">
+    <p>Sorry, nothing here by that name.</p>
+</div>
